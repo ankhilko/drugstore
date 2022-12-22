@@ -19,7 +19,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(WorkSchedule)
 class WorkScheduleAdmin(admin.ModelAdmin):
-    list_display = ('week_day', )
-    list_filter = ('name', )
+    list_display = ('week_day', 'opening_time', 'close_time')
+    list_filter = ('week_day', )
     search_fields = ('week_day',)
 
