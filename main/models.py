@@ -63,13 +63,13 @@ class Product(models.Model):
 
 
 WEEK = (
-    ('mon', 'Monday'),
-    ('tue', 'Tuesday'),
-    ('wed', 'Wednesday'),
-    ('thu', 'Thursday'),
-    ('fri', 'Friday'),
-    ('sat', 'Saturday'),
-    ('sun', 'Sunday'),
+    ('Monday', 'Monday'),
+    ('Tuesday', 'Tuesday'),
+    ('Wednesday', 'Wednesday'),
+    ('Thursday', 'Thursday'),
+    ('Friday', 'Friday'),
+    ('Saturday', 'Saturday'),
+    ('Sunday', 'Sunday'),
 )
 
 
@@ -90,7 +90,7 @@ class WorkSchedule(models.Model):
         null=True,
 
     )
-    close_time = models.TimeField(
+    closing_time = models.TimeField(
         verbose_name='closing time',
         blank=True,
         null=True,
@@ -103,8 +103,6 @@ class WorkSchedule(models.Model):
         db_table = 'main_work_schedule'
         verbose_name = 'work schedule'
         verbose_name_plural = 'work schedules'
-
-
 
 
 

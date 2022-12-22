@@ -1,8 +1,10 @@
+from datetime import datetime
+
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
-from main.models import Product
+from main.models import Product, WorkSchedule
 
 
 # Create your views here.
@@ -11,7 +13,7 @@ class IndexTemplateView(TemplateView):
     template_name = 'main/index.html'
 
 
-class ProductTemplateView(TemplateView):
+class ProductListView(ListView):
     template_name = 'main/products.html'
     model = Product
     context_object_name = 'products'
@@ -21,6 +23,22 @@ class ProductTemplateView(TemplateView):
         objs = Product.objects.filter(is_published=True)
         objs = iter(objs)
         return list(zip_longest(objs, objs))
+
+
+class WorkScheduleListView(ListView):
+    template_name = 'main/store.html'
+    model = WorkSchedule
+    context_object_name = 'store'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data()
+        context['weekday'] = datetime.today().isoweekday()
+        return context
+
+
+class AboutTemplateView(TemplateView):
+    template_name = 'main/about.html'
+    context_object_name = 'about'
 
 
 
