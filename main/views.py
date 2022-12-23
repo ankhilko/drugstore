@@ -25,20 +25,21 @@ class ProductListView(ListView):
         return list(zip_longest(objs, objs))
 
 
+class AboutTemplateView(TemplateView):
+    template_name = 'main/about.html'
+    context_object_name = 'about'
+
+
 class WorkScheduleListView(ListView):
     template_name = 'main/store.html'
     model = WorkSchedule
-    context_object_name = 'store'
+    context_object_name = 'week'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data()
         context['weekday'] = datetime.today().isoweekday()
         return context
 
-
-class AboutTemplateView(TemplateView):
-    template_name = 'main/about.html'
-    context_object_name = 'about'
 
 
 

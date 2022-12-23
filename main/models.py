@@ -3,13 +3,11 @@ from django.db import models
 # Create your models here.
 
 
-
 class Category(models.Model):
     is_published = models.BooleanField(
         default=True,
         verbose_name='published',
     )
-
     name = models.CharField(
         max_length=64,
         verbose_name='category'
@@ -24,29 +22,23 @@ class Category(models.Model):
         verbose_name_plural = 'categories'
 
 
-
-
 class Product(models.Model):
     is_published = models.BooleanField(
         default=True,
         verbose_name='published',
     )
-
     name = models.CharField(
         max_length=64,
         verbose_name='product'
     )
-
     image = models.ImageField(
         upload_to='products/',
         verbose_name='picture'
     )
-
     descr = models.CharField(
         max_length=3000,
         verbose_name='description'
     )
-
     category = models.ForeignKey(
         Category,
         on_delete=models.CASCADE,
@@ -88,7 +80,6 @@ class WorkSchedule(models.Model):
         verbose_name='opening time',
         blank=True,
         null=True,
-
     )
     closing_time = models.TimeField(
         verbose_name='closing time',
@@ -103,6 +94,5 @@ class WorkSchedule(models.Model):
         db_table = 'main_work_schedule'
         verbose_name = 'work schedule'
         verbose_name_plural = 'work schedules'
-
 
 

@@ -15,7 +15,10 @@
                                 <span class="section-heading-upper">Come On In</span>
                                 <span class="section-heading-lower">We're Open</span>
                             </h2>
-                            <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                            <ul class="list-unstyled list-hSundayours mb-5 text-left mx-auto">
+                            {% for day in week %}
+                                {{ day.week_day.index }}
+                            {% endfor %}
                                 <li class="list-unstyled-item list-hours-item d-flex">
                                     Sunday
                                     <span class="ms-auto">Closed</span>
