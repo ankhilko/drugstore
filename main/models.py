@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime
 
 # Create your models here.
 
@@ -72,7 +73,7 @@ class WorkSchedule(models.Model):
         choices=WEEK,
         unique=True,
     )
-    # is_current = None
+
     is_published = models.BooleanField(
         default=True,
         verbose_name='published',
@@ -90,6 +91,9 @@ class WorkSchedule(models.Model):
 
     def __str__(self):
         return self.week_day
+
+    def weekday_is_now(self):
+        return self.week_day == datetime.now().strftime('%A')
 
     class Meta:
         db_table = 'main_work_schedule'
