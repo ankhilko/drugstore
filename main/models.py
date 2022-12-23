@@ -72,6 +72,7 @@ class WorkSchedule(models.Model):
         choices=WEEK,
         unique=True,
     )
+    # is_current = None
     is_published = models.BooleanField(
         default=True,
         verbose_name='published',

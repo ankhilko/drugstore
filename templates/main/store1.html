@@ -15,64 +15,6 @@
                                 <span class="section-heading-upper">Come On In</span>
                                 <span class="section-heading-lower">We're Open</span>
                             </h2>
-{{ week }}
-
-                    <ul class="list-hours mb-5 text-left mx-auto">
-                        {% for day in week %}
-                            {% if weekday == day.pk %}
-                                <li class="list-hours-item today d-flex">
-                                    {{ day.week_day }}
-                                    {% if day.opening_time %}
-                                        <span class="ms-auto">{{ day.opening_time|time:"H:i" }} AM to {{ day.closing_time|time:"H:i" }} PM</span>
-                                    {% else %}
-                                        <span class="ms-auto">Closed</span>
-                                    {% endif %}
-                                </li>
-                            {% else %}
-                                <li class="list-hours-item d-flex">
-                                    {{ day.week_day }}
-                                    {% if day.opening_time %}
-                                        <span class="ms-auto">{{ day.opening_time|time:"H:i" }} AM to {{ day.closing_time|time:"H:i" }} PM</span>
-                                    {% else %}
-                                        <span class="ms-auto">Closed</span>
-                                    {% endif %}
-                                </li>
-                            {% endif %}
-
-                        {% endfor %}
-                    </ul>
-{{ week }}
-
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-                            {% set |now "l" %}
-
-                            {% for day in week %}
-                                {{ day.week_day }}
-                                {% if day.week_day == 'Friday' %}
-                                    {{ day.week_day }}{{ day.week_day }}{{ day.week_day }}{{ day.week_day }}
-                                {% endif %}
-                            {% endfor %}
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
                             <ul class="list-unstyled list-hSundayours mb-5 text-left mx-auto">
                                 <li class="list-unstyled-item list-hours-item d-flex">
                                     Sunday
