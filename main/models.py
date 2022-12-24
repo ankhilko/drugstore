@@ -55,6 +55,7 @@ class Product(models.Model):
         verbose_name_plural = 'products'
 
 
+
 WEEK = (
     ('Monday', 'Monday'),
     ('Tuesday', 'Tuesday'),
@@ -73,10 +74,9 @@ class WorkSchedule(models.Model):
         choices=WEEK,
         unique=True,
     )
-
     is_published = models.BooleanField(
-        default=True,
         verbose_name='published',
+        default=True,
     )
     opening_time = models.TimeField(
         verbose_name='opening time',
@@ -99,5 +99,6 @@ class WorkSchedule(models.Model):
         db_table = 'main_work_schedule'
         verbose_name = 'work schedule'
         verbose_name_plural = 'work schedules'
+        # ordering = ['week_day']
 
 

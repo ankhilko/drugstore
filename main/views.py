@@ -41,6 +41,8 @@ class WorkScheduleListView(ListView):
     #     return context
 
 
+
+
 # def index(request: HttpRequest):
 #     return HttpResponse('<b>Hello</b>')
 
