@@ -18,11 +18,11 @@ class ProductListView(ListView):
     model = Product
     context_object_name = 'products'
 
-    def get_queryset(self):
-        from itertools import zip_longest
-        objs = Product.objects.filter(is_published=True)
-        objs = iter(objs)
-        return list(zip_longest(objs, objs))
+    # def get_queryset(self):
+    #     from itertools import zip_longest
+    #     objs = Product.objects.filter(is_published=True)
+    #     objs = iter(objs)
+    #     return list(zip_longest(objs, objs))
 
 
 class AboutTemplateView(TemplateView):
@@ -35,12 +35,10 @@ class WorkScheduleListView(ListView):
     model = WorkSchedule
     context_object_name = 'week'
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data()
-        context['weekday'] = datetime.today().isoweekday()
-        return context
-
-
+    # def get_context_data(self, *, object_list=None, **kwargs):
+    #     context = super().get_context_data()
+    #     context['weekday'] = datetime.today().isoweekday()
+    #     return context
 
 
 # def index(request: HttpRequest):
