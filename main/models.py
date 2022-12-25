@@ -67,6 +67,7 @@ WEEK = (
 )
 
 
+
 class WorkSchedule(models.Model):
     week_day = models.CharField(
         max_length=20,
