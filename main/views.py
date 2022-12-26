@@ -5,6 +5,7 @@ from django.http import HttpRequest, HttpResponse
 from django.views.generic import TemplateView, ListView
 
 from main.models import Product, WorkSchedule
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 # Create your views here.
@@ -13,7 +14,8 @@ class IndexTemplateView(TemplateView):
     template_name = 'main/index.html'
 
 
-class ProductListView(ListView):
+class ProductListView(LoginRequiredMixin, ListView):
+    login_url = '/signin/'
     template_name = 'main/products.html'
     model = Product
     context_object_name = 'products'
