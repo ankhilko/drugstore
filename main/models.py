@@ -103,3 +103,6 @@ class WorkSchedule(models.Model):
         # ordering = ['week_day']
 
 
+
+
+

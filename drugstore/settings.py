@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main.apps.MainConfig',           # название приложения    _app_   Имя_приложения_Конфигурация
+    'registration.apps.RegistrationConfig',           # название приложения    _app_   Имя_приложения_Конфигурация
 
 ]
 
@@ -131,3 +132,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 DEFAULT_AUTO_FIELD = 'django.db.models.SmallAutoField'
+
+LOGIN_REDIRECT_URL = 'profile'                   # adding to work with our form
+LOGOUT_REDIRECT_URL = 'index'
