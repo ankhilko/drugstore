@@ -27,9 +27,20 @@ class ProductListView(LoginRequiredMixin, ListView):
     #     return list(zip_longest(objs, objs))
 
 
+from django.utils.translation import gettext as _
+# {% load i18n %}
+from django.utils.translation import ngettext
+
+
 class AboutTemplateView(TemplateView):
     template_name = 'main/about.html'
     context_object_name = 'about'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        context['heading'] = _('About us')       # любое форматирование но не f-string
+        context['subheading'] = _('Our coffee')
+
 
 
 class WorkScheduleListView(ListView):

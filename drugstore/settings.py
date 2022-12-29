@@ -45,12 +45,18 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+
+    'django.middleware.locale.LocaleMiddleware',
+
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# django.middleware.locale.LocaleMiddleware   - прописываем для перевода
+
 
 ROOT_URLCONF = 'drugstore.urls'
 
@@ -112,9 +118,12 @@ LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
-USE_I18N = True
+USE_I18N = True          # midlleware for multilanguage
 
 USE_TZ = True
+
+
+from django.utils.translation import gettext as _
 
 
 # Static files (CSS, JavaScript, Images)
