@@ -1,8 +1,9 @@
 from datetime import datetime
 
 from django.shortcuts import render
-from django.http import HttpRequest, HttpResponse
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.views.generic import TemplateView, ListView
+from django.views import View
 
 from main.models import Product, WorkSchedule
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -54,11 +55,34 @@ class WorkScheduleListView(ListView):
     #     return context
 
 
+class ProductApiView(View):
+    model = Product
+
+    def get(self, request: HttpRequest):
+        obj = self.model.objects.filter(is_published=True).order_by('id')
+        products = {'products': []}
+        for item in obj:
+            products['products'].append(
+                {
+                    'id': item.id,
+                    'name': item.name,
+                    'descr': item.descr,
+                    'image': item.image.url if item.image else None,
+                 }
+            )
+        return JsonResponse(products, status=200)
+
+    def post(self, request: HttpRequest):
+        product = self.model(request.POST)
+        try:
+            product.save()
+        except Exception as e:
+            return JsonResponse({'error': e}, status=404)
+        return JsonResponse(product.__dict__, status=201)
+
 
 
 # def index(request: HttpRequest):
 #     return HttpResponse('<b>Hello</b>')
-
-
 
 

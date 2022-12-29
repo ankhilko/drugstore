@@ -34,7 +34,9 @@ class Product(models.Model):
     )
     image = models.ImageField(
         upload_to='products/',
-        verbose_name='picture'
+        verbose_name='picture',
+        blank=True,
+        null=True,
     )
     descr = models.CharField(
         max_length=3000,

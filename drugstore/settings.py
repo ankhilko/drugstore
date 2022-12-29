@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main.apps.MainConfig',           # название приложения    _app_   Имя_приложения_Конфигурация
     'registration.apps.RegistrationConfig',           # название приложения    _app_   Имя_приложения_Конфигурация
+    'rest_framework',
+    'apiv1.apps.Apiv1Config',
 
 ]
 
