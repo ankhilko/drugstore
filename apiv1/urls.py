@@ -13,7 +13,7 @@ api_router.register(r'products', ProductViewSet)
 
 urlpatterns = [
     path('', include(api_router.urls)),
-    # path('products/', ProductViewSet.as_view({'get': 'list'},)),
+    # path('products/', ProductViewSet.as_view({'get': 'list'},)),        # своя апишка на джанге
 
 ]
 
