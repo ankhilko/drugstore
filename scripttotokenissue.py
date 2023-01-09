@@ -1,7 +1,6 @@
 from requests import Session
 
 
-
 def post(url, json) -> dict:
     with Session() as session:
         response = session.post(
