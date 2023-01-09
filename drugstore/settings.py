@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import os.path
 from pathlib import Path
 
+import rest_framework.authentication
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -41,6 +43,7 @@ INSTALLED_APPS = [
     'registration.apps.RegistrationConfig',           # название приложения    _app_   Имя_приложения_Конфигурация
     'rest_framework',
     'apiv1.apps.Apiv1Config',
+    'rest_framework.authtoken',
 
 ]
 
@@ -146,3 +149,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.SmallAutoField'
 
 LOGIN_REDIRECT_URL = 'profile'                   # adding to work with our form
 LOGOUT_REDIRECT_URL = 'index'
+
+
+
+# rest_framework settings
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+            'rest_framework.authentication.TokenAuthentication',
+        ]
+}
+
+
+
+
+
