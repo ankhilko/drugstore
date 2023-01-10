@@ -160,6 +160,6 @@ REST_FRAMEWORK = {
 }
 
 
-
+TOKEN_EXPIRE = 2
 
 
